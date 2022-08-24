@@ -313,16 +313,16 @@ const getBasicInformation = async (basicInfoParams) => {
 
                         await extendOutputFunction({
                             title,
-                            headline,
-                            id: videoId,
                             url: videoUrl,
-                            viewCount,
-                            date: simplifiedDate,
+                            headline,
+                            // id: videoId,
                             source: simplifiedSource,
-                            channelName,
-                            channelUrl,
-                            numberOfSubscribers,
+                            date: simplifiedDate,
+                            viewCount,
                             duration,
+                            category: channelName,
+                            // channelUrl,
+                            // numberOfSubscribers,
                         });
                     } else {
                         try {
@@ -341,15 +341,15 @@ const getBasicInformation = async (basicInfoParams) => {
 
                             await extendOutputFunction({
                                 title,
-                                headline,
-                                id: videoUrl.split('v=')[1],
+                                // id: videoUrl.split('v=')[1],
                                 url: videoUrl,
-                                viewCount,
-                                date,
+                                headline,
                                 source,
-                                channelName,
-                                channelUrl,
+                                date,
+                                viewCount,
                                 duration,
+                                category: channelName,
+                                // channelUrl,
                             });
                         } catch (e) {
                             log.warning(e);

@@ -16,17 +16,17 @@
                     "transformation": {
                         "fields": [
                             "title",
-//                            "id",
-                            "headline",
+                            //                            "id",
                             "url",
-                            "viewCount",
-                            "date",
+                            "headline",
                             "source",
-//                            "likes",
-                            "channelName",
-//                            "channelUrl",
-//                            "numberOfSubscribers",
-                            "duration"
+                            "date",
+                            "viewCount",
+                            "duration",
+                            //                            "likes",
+                            "category"
+                            //                            "channelUrl",
+                            //                            "numberOfSubscribers",
                         ]
                     },
                     "display": {
@@ -37,20 +37,15 @@
                                 "format": "text",
                                 "field": "title"
                             },
-                                                        {
-                                "label": "Headline",
-                                "format": "text",
-                                "field": "headline"
-                            },
                             {
                                 "label": "URL",
                                 "format": "text",
                                 "field": "url"
                             },
                             {
-                                "label": "Number of views",
+                                "label": "Headline",
                                 "format": "text",
-                                "field": "viewCount"
+                                "field": "headline"
                             },
                             {
                                 "label": "Source",
@@ -58,35 +53,42 @@
                                 "field": "source"
                             },
                             {
-                                "label": "Duration",
-                                "format": "text",
-                                "field": "duration"
-                            },
-//                            {
-//                                "label": "Number of likes",
-//                                "format": "text",
-//                                "field": "likes"
-//                            },
-                            {
                                 "label": "Date",
                                 "format": "text",
                                 "field": "date"
                             },
                             {
+                                "label": "Number of views",
+                                "format": "text",
+                                "field": "viewCount"
+                            },
+
+                            {
+                                "label": "Duration",
+                                "format": "text",
+                                "field": "duration"
+                            },
+                            //                            {
+                            //                                "label": "Number of likes",
+                            //                                "format": "text",
+                            //                                "field": "likes"
+                            //                            },
+
+                            {
                                 "label": "Category",
                                 "format": "text",
-                                "field": "channelName"
-                            },
-//                            {
-//                                "label": "Number of subscribers",
-//                                "format": "text",
-//                                "field": "numberOfSubscribers"
-//                            },
-//                            {
-//                                "label": "duration",
-//                                "format": "text",
-//                                "field": "duration"
-//                            }
+                                "field": "category"
+                            }
+                            //                            {
+                            //                                "label": "Number of subscribers",
+                            //                                "format": "text",
+                            //                                "field": "numberOfSubscribers"
+                            //                            },
+                            //                            {
+                            //                                "label": "duration",
+                            //                                "format": "text",
+                            //                                "field": "duration"
+                            //                            }
                         ]
                     }
                 }
