@@ -299,6 +299,10 @@ const getBasicInformation = async (basicInfoParams) => {
 
                         let duration;
 
+                        const timeValue = simplifiedDate.split(' ')[0];
+                        const timeUnit = simplifiedDate.split(' ')[1];
+                        const timeStamp = moment().subtract(timeValue, timeUnit).unix();
+
                         try {
                             console.log(`Trying to parse alternative duration`);
                             durationRaw = videoDetailsArray.slice(videoDetailsArray.indexOf('ago') + 1, -2).join(' ');
@@ -317,7 +321,7 @@ const getBasicInformation = async (basicInfoParams) => {
                             headline,
                             // id: videoId,
                             source: simplifiedSource,
-                            date: simplifiedDate,
+                            date: timeStamp,
                             viewCount,
                             duration,
                             category: channelName,
@@ -334,10 +338,14 @@ const getBasicInformation = async (basicInfoParams) => {
                             const viewCountRaw = await video.$eval(simplifiedResultViewCount, (el) => el.innerText);
                             const viewCount = unformatNumbers(viewCountRaw);
                             const source = await video.$eval(simplifiedSource, (el) => el.innerText);
-                            const date = await video.$eval(simplifiedResultDate, (el) => el.innerText);
+                            const simplifiedDate = await video.$eval(simplifiedResultDate, (el) => el.innerText);
                             const headline = await video.$eval(simplifiedResultHeadline, (el) => el.innerText);
 
                             videoAmount++;
+
+                            const timeValue = simplifiedDate.split(' ')[0];
+                            const timeUnit = simplifiedDate.split(' ')[1];
+                            const timeStamp = moment().subtract(timeValue, timeUnit).unix();
 
                             await extendOutputFunction({
                                 title,
@@ -345,7 +353,7 @@ const getBasicInformation = async (basicInfoParams) => {
                                 url: videoUrl,
                                 headline,
                                 source,
-                                date,
+                                date: timeStamp,
                                 viewCount,
                                 duration,
                                 category: channelName,
