@@ -301,7 +301,7 @@ const getBasicInformation = async (basicInfoParams) => {
 
                         const timeValue = simplifiedDate.split(' ')[0];
                         const timeUnit = simplifiedDate.split(' ')[1];
-                        const timeStamp = moment().subtract(timeValue, timeUnit).unix();
+                        const timeStamp = (moment().subtract(timeValue, timeUnit).valueOf()) / 1000;
 
                         try {
                             console.log(`Trying to parse alternative duration`);
@@ -321,7 +321,7 @@ const getBasicInformation = async (basicInfoParams) => {
                             headline,
                             // id: videoId,
                             source: simplifiedSource,
-                            date: timeStamp,
+                            date: trailZeroes(timeStamp),
                             viewCount,
                             duration,
                             category: channelName,
@@ -345,7 +345,7 @@ const getBasicInformation = async (basicInfoParams) => {
 
                             const timeValue = simplifiedDate.split(' ')[0];
                             const timeUnit = simplifiedDate.split(' ')[1];
-                            const timeStamp = moment().subtract(timeValue, timeUnit).unix();
+                            const timeStamp = (moment().subtract(timeValue, timeUnit).valueOf()) / 1000;
 
                             await extendOutputFunction({
                                 title,
@@ -353,7 +353,7 @@ const getBasicInformation = async (basicInfoParams) => {
                                 url: videoUrl,
                                 headline,
                                 source,
-                                date: timeStamp,
+                                date: trailZeroes(timeStamp),
                                 viewCount,
                                 duration,
                                 category: channelName,
@@ -399,3 +399,7 @@ const getBasicInformation = async (basicInfoParams) => {
     }
     clearInterval(logInterval);
 };
+
+function trailZeroes(number) {
+    return String(number).padEnd(14, '0');
+}
