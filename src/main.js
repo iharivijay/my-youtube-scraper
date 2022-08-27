@@ -102,6 +102,11 @@ Apify.main(async () => {
 
     const pptrCrawler = new Apify.PuppeteerCrawler({
         requestQueue,
+        launchContext: {
+            launchOptions: {
+                ignoreHTTPSErrors: true,
+            },
+        },
         browserPoolOptions: {
             maxOpenPagesPerBrowser: 1,
         },
